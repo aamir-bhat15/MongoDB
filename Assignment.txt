@@ -1,0 +1,48 @@
+Q1. What is MongoDB? Explain non-relational databases in short. In which scenarios it is preferred to use
+MongoDB over SQL databases?
+Ans: MongoDB is a schema-less database, which means the database can manage data without the need for a blueprint. Document. 
+Data in MongoDB is stored in documents with key-value pairs instead of rows and columns, which makes the data more flexible when compared to SQL databases.
+MongoDB is a non-relational document database that provides support for JSON-like storage. 
+The MongoDB database has a flexible data model that enables you to store unstructured data, and it provides full indexing support, and replication with rich and intuitive APIs.
+For same reason MongoDB is preferred over SQL because of ability to store data in any form.
+
+Q2. State and Explain the features of MongoDB.
+Ans:
+1. Ad-hoc queries for optimized, real-time analytics: MongoDB supports field queries, range queries, and regular expression searches. 
+    Queries can return specific fields and also account for user-defined functions. 
+    This is made possible because MongoDB indexes BSON documents and uses the MongoDB Query Language (MQL).
+2. Indexing appropriately for better query executions: MongoDB offers a broad range of indices and features with language-specific sort orders that support complex access patterns to datasets.
+    Notably, MongoDB indices can be created on demand to accommodate real-time, ever-changing query patterns and application requirements. 
+    They can also be declared on any field within any of your documents, including those nested within arrays.
+3. Replication for better data availability and stability: In MongoDB, replica sets are employed for this purpose. A primary server or node accepts all write operations and applies those same operations across secondary servers, replicating the data. 
+    If the primary server should ever experience a critical failure, any one of the secondary servers can be elected to become the new primary node. 
+    And if the former primary node comes back online, it does so as a secondary server for the new primary node.
+4. Sharding: All operations in a sharding environment are handled through a lightweight process called mongos. Mongos can direct queries to the correct shard based on the shard key. 
+    Naturally, proper sharding also contributes significantly to better load balancing.
+5. Load balancing: MongoDB supports large-scale load balancing. 
+    The platform can handle multiple concurrent read and write requests for the same data with best-in-class concurrency control and locking protocols that ensure data consistency
+
+Q3. Write a code to connect MongoDB to Python. Also, create a database and a collection in MongoDB.
+Ans: Refer to main.py or test.py
+
+Q4. Using the database and the collection created in question number 3, write a code to insert one record,
+and insert many records. Use the find() and find_one() methods to print the inserted record.
+Ans: Refer to same main.py
+
+Q5. Explain how you can use the find() method to query the MongoDB database. Write a simple code to
+demonstrate this.
+Ans: find() method is used to find the data 
+         find() method "returns documents," the method is actually returning a cursor to the documents.
+         all_record = collection.find()
+
+Q6. Explain the sort() method. Give an example to demonstrate sorting in MongoDB.
+Ans: The sort() method specifies the order in which the query returns the matching documents from the given collection. 
+You must apply this method to the cursor before retrieving any documents from the database. It takes a document as a parameter that contains a field: value pair that defines the sort order of the result set. 
+The value is 1 or -1 specifying an ascending or descending sort respectively.
+    db.student.find().sort({age:1})
+
+Q7. Explain why delete_one(), delete_many(), and drop() is used.
+Ans: 
+1. In MongoDB, a single document can be deleted by the method delete_one(). The first parameter of the method would be a query object which defines the document to be deleted. If there are multiple documents matching the filter query, only the first appeared document would be deleted. 
+2. Delete_many() is used when one needs to delete more than one document. A query object containing which document to be deleted is created and is passed as the first parameter to the delete_many().
+3. You can delete a table, or collection as it is called in MongoDB, by using the drop() method. The drop() method takes a callback function containing the error object and the result parameter which returns true if the collection was dropped successfully, otherwise it returns false
